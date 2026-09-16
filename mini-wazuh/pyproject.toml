@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mini-wazuh"
+version = "0.1.0"
+description = "Local cluster service and worker clients"
+requires-python = ">=3.10"
+dependencies = [
+    "cryptography>=45,<47",
+]
+
+[project.scripts]
+mini-wazuh-master = "mini_wazuh.master:main"
+mini-wazuh-worker = "mini_wazuh.worker:main"
+mini-wazuh-command = "mini_wazuh.worker:command_main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mini_wazuh*"]
